@@ -1,23 +1,10 @@
-var http = require('http');
-var fs = require('fs');
+var express = require('express');
+var app = express();
 
-http.createServer(function (request, response) {
+app.use(express.static(__dirname + '/public'));
 
 var port = process.env.PORT || 5000;
 
-    console.log('request starting...');
-    
-    fs.readFile('index.html', function(error, content) {
-        if (error) {
-            response.writeHead(500);
-            response.end();
-        }
-        else {
-            response.writeHead(200, { 'Content-Type': 'text/html' });
-            response.end(content, 'utf-8');
-        }
-    });
-    
-}).listen(port);
-console.log('Listening on ' + port);
+app.listen(port);
 
+console.log('Listening on ' + port);
