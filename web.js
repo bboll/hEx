@@ -6,7 +6,7 @@ app.set('views', __dirname + '/views');
 
 app.engine('html', require('ejs').renderFile);
 
-app.get('/', function(request, response) {
+app.get('/index', function(request, response) {
   response.render('index.html');
 });
 
