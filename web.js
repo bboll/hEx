@@ -2,11 +2,11 @@ var express = require('express');
 
 var app = express.createServer(express.logger());
 
-app.set('views', __dirname + '/views');
+app.set('view engine', 'html');
 
-app.engine('html', require('ejs').renderFile);
+app.engine('html', require('ejs').__express);
 
-app.get('/index', function(request, response) {
+app.get('/', function(request, response) {
   response.render('index.html');
 });
 
