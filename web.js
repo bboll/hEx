@@ -2,6 +2,10 @@ var express = require('express');
 
 var app = express.createServer(express.logger());
 
+app.set('views', __dirname + '/views');
+
+app.engine('html', require('ejs').renderFile);
+
 app.get('/', function(request, response) {
   response.render('index.html');
 });
