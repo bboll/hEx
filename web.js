@@ -7,7 +7,7 @@ var port = process.env.PORT || 5000;
 
     console.log('request starting...');
     
-    fs.readFile('./index.html', function(error, content) {
+    fs.readFile('index.html', function(error, content) {
         if (error) {
             response.writeHead(500);
             response.end();
