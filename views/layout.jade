@@ -130,7 +130,7 @@ html(lang="en")
             query: 'SELECT message FROM stream WHERE uid=me()'
           },
           function(response) {
-            alert('Your name is ' + response[0].name);
+            alert('A message on your wall: ' + response[0].message);
           });
       });
 
