@@ -24,84 +24,83 @@ html(lang="en")
           p
     #fb-root
       fb:login-button(autologoutlink='true', perms='email,user_birthday,status_update')
-      script(type='text/javascript')
-        window.fbAsyncInit = function() {
-        FB.init({appId: '349867401786110', status: true, cookie: true, xfbml: true});
-        FB.Event.subscribe('auth.login', function(response) {
-        login();
-        });
-        FB.Event.subscribe('auth.logout', function(response) {
-        logout();
-        });
-        FB.getLoginStatus(function(response) {
-        if (response.session) {
-        greet();
-        }
-        });
-        };
-        (function() {
-        var e = document.createElement('script');
-        e.type = 'text/javascript';
-        e.src = document.location.protocol +
-        '//connect.facebook.net/en_US/all.js';
-        e.async = true;
-        document.getElementById('fb-root').appendChild(e);
-        }());
-        function login(){
-        FB.api('/me', function(response) {
-        alert('You have successfully logged in, '+response.name+"!");
-        });
-        }
-        function logout(){
-        alert('You have successfully logged out!');
-        }
-        function greet(){
-        FB.api('/me', function(response) {
-        alert('Welcome, '+response.name+"!");
-        });
-        }
-        function setStatus(){
-        // check if user is logged in:
-        FB.getLoginStatus(function(response) {
-        if (response.session) {
-        new_status = document.getElementById('status').value;
-        FB.api(
-        {
-        method: 'status.set',
-        status: new_status
-        },
-        function(response) {
-        if (response == 0){
-        alert('Your facebook status not updated. Give Status Update Permission.');
-        }
-        else{
-        alert('Your facebook status updated');
-        }
-        }
-        );
-        } else {
-        alert('please log in first :)');
-        }
-        });
-        }
-      script(type='text/javascript')
-        $("#primary-btn").click(function(){
-          $("#welcome-unit").hide();
-        });
+    script(type='text/javascript')
+      window.fbAsyncInit = function() {
+      FB.init({appId: '349867401786110', status: true, cookie: true, xfbml: true});
+      FB.Event.subscribe('auth.login', function(response) {
+      login();
+      });
+      FB.Event.subscribe('auth.logout', function(response) {
+      logout();
+      });
+      FB.getLoginStatus(function(response) {
+      if (response.session) {
+      greet();
+      }
+      });
+      };
+      (function() {
+      var e = document.createElement('script');
+      e.type = 'text/javascript';
+      e.src = document.location.protocol +
+      '//connect.facebook.net/en_US/all.js';
+      e.async = true;
+      document.getElementById('fb-root').appendChild(e);
+      }());
+      function login(){
+      FB.api('/me', function(response) {
+      alert('You have successfully logged in, '+response.name+"!");
+      });
+      }
+      function logout(){
+      alert('You have successfully logged out!');
+      }
+      function greet(){
+      FB.api('/me', function(response) {
+      alert('Welcome, '+response.name+"!");
+      });
+      }
+      function setStatus(){
+      // check if user is logged in:
+      FB.getLoginStatus(function(response) {
+      if (response.session) {
+      new_status = document.getElementById('status').value;
+      FB.api(
+      {
+      method: 'status.set',
+      status: new_status
+      },
+      function(response) {
+      if (response == 0){
+      alert('Your facebook status not updated. Give Status Update Permission.');
+      }
+      else{
+      alert('Your facebook status updated');
+      }
+      }
+      );
+      } else {
+      alert('please log in first :)');
+      }
+      });
+      }
 
-
-      script(src='http://code.jquery.com/jquery-1.9.0.min.js')
-      script(src='http://code.jquery.com/jquery-1.9.0.js')
-      script(src='/javascripts/bootstrap-transition.js')
-      script(src='/javascripts/bootstrap-alert.js')
-      script(src='/javascripts/bootstrap-modal.js')
-      script(src='/javascripts/bootstrap-dropdown.js')
-      script(src='/javascripts/bootstrap-scrollspy.js')
-      script(src='/javascripts/bootstrap-tab.js')
-      script(src='/javascripts/bootstrap-tooltip.js')
-      script(src='/javascripts/bootstrap-popover.js')
-      script(src='/javascripts/bootstrap-button.js')
-      script(src='/javascripts/bootstrap-collapse.js')
-      script(src='/javascripts/bootstrap-carousel.js')
-      script(src='/javascripts/bootstrap-typeahead.js')
+    script(src='http://code.jquery.com/jquery-1.9.0.min.js')
+    script(src='http://code.jquery.com/jquery-1.9.0.js')
+    script(src='/javascripts/bootstrap-transition.js')
+    script(src='/javascripts/bootstrap-alert.js')
+    script(src='/javascripts/bootstrap-modal.js')
+    script(src='/javascripts/bootstrap-dropdown.js')
+    script(src='/javascripts/bootstrap-scrollspy.js')
+    script(src='/javascripts/bootstrap-tab.js')
+    script(src='/javascripts/bootstrap-tooltip.js')
+    script(src='/javascripts/bootstrap-popover.js')
+    script(src='/javascripts/bootstrap-button.js')
+    script(src='/javascripts/bootstrap-collapse.js')
+    script(src='/javascripts/bootstrap-carousel.js')
+    script(src='/javascripts/bootstrap-typeahead.js')
+    script(type='text/javascript')
+      $("#primary-btn").click(function(){
+        $("#welcome-unit").hide();
+      });
 
