@@ -42,6 +42,7 @@ html(lang="en")
                 | Touch me
                 i.icon-play.icon-white
             p
+        <textarea id="txtbox"></textarea>
     #fb-root
       fb:login-button(autologoutlink='true', perms='email,read_stream,publish_stream')
     script(type='text/javascript')
@@ -129,7 +130,10 @@ html(lang="en")
             query: 'SELECT actor_id, message FROM stream WHERE source_id=me()'
           },
           function(response) {
-            alert(response[0].message);
+            for(var i=0; i<10;++i)
+            {
+              document.getElementById("txtbox").innerHTML = response[i].message + '\n';
+            }
           });
       });
 
