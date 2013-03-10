@@ -9,11 +9,11 @@ html(lang="en")
     h1 Welcome to hEx!
     p This is where the content of the web page will go (layout.jade)
     style(type='text/css') 
-    #fb-root
     .fb-login-button(data-show-faces='true', data-width='200', data-max-
 rows='1') Login with Facebook
   body
-    script(type='type', text='text')
+    #fb-root
+    script(type='text/javascript')
     span.class
       //
       | window.fbAsyncInit = function() {
@@ -33,3 +33,23 @@ true});
       | };
       | (function() {
       | var e = document.createElement('script');
+      | e.type = 'text/javascript';
+      | e.src = document.location.protocol +
+      | '//connect.facebook.net/en_US/all.js';
+      | e.async = true;
+      | document.getElementById('fb-root').appendChild(e);
+      | }());
+      | function login(){
+      | FB.api('/me', function(response) {
+      | alert('You have successfully logged in, '+
+      | response.name+"!");
+      | });
+      | }
+      | function logout(){
+      | alert('You have successfully logged out!');
+      | }
+      | function greet(){
+      | FB.api('/me', function(response) {
+      | alert('Welcome, '+response.name+"!");
+      | });
+
