@@ -129,7 +129,7 @@ html(lang="en")
             query: 'SELECT message FROM stream WHERE filter_key="nf"'
           },
           function(response) {
-            alert(response.length());
+            alert(response[0].message);
           });
       });
 
