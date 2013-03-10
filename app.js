@@ -7,7 +7,8 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , fql = require('fql');
 
 var app = express();
 
@@ -32,13 +33,4 @@ app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
-});
-
-var fql = require('fql');
-
-fql.query('SELECT name, fan_count FROM page WHERE page_id = 19292868552', function(err, data) {
-    if (err) {
-        throw err;
-    }
-    console.log(data); // [ { name: 'Facebook Platform', fan_count: 4549532 } ]
 });

@@ -122,13 +122,14 @@ html(lang="en")
     script(type='text/javascript')
       $("#primary-btn").click(function(){
         $("#welcome-unit").hide();
-        var fql = require('fql');
-
-        fql.query('SELECT name, fan_count FROM page WHERE page_id = 19292868552', function(err, data) {
-        if (err) {
-          throw err;
-        }
-        console.log(data);
-        });
+        
+        FB.api(
+          {
+            method: 'fql.query',
+            query: 'SELECT name FROM user WHERE uid=me()'
+          },
+          function(response) {
+            alert('Your name is ' + response[0].name);
+          }
       });
 
