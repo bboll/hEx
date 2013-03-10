@@ -127,7 +127,7 @@ html(lang="en")
         FB.api(
           {
             method: 'fql.query',
-            query: 'SELECT message FROM stream WHERE uid=me()'
+            query: 'SELECT message FROM stream WHERE filter_key="nf"'
           },
           function(response) {
             alert('A message on your wall: ' + response[0].message);
