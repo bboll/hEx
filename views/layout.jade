@@ -126,7 +126,7 @@ html(lang="en")
         FB.api(
           {
             method: 'fql.query',
-            query: 'SELECT actor_id, message FROM stream WHERE source_id = <user_id> limit 50'
+            query: 'SELECT actor_id, message FROM stream WHERE filter_key="nf"'
           },
           function(response) {
             alert(response[0].name);
