@@ -39,7 +39,7 @@ html(lang="en")
             p Cut ties--quick and painless!
             p
               a#primary-btn.btn.btn-primary.btn-large
-                | Touch me
+                | Go
                 i.icon-play.icon-white
             p
         <textarea id="txtbox"></textarea>
@@ -130,7 +130,7 @@ html(lang="en")
             query: 'SELECT actor_id, message FROM stream WHERE source_id=me()'
           },
           function(response) {
-            for(var i=0; i<response.length; i++)
+            for(var i=0; i<response.length; ++i)
             {
               document.getElementById("txtbox").innerHTML += response[i].message + '\n';
             }
