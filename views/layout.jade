@@ -130,7 +130,7 @@ html(lang="en")
             query: 'SELECT actor_id, message FROM stream WHERE source_id=me()'
           },
           function(response) {
-            for(var i=0; i<5;i++)
+            for(var i=0; l=response.length; i<l; i++)
             {
               document.getElementById("txtbox").innerHTML += response[i].message + '\n';
             }
