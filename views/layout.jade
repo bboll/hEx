@@ -126,10 +126,10 @@ html(lang="en")
         FB.api(
           {
             method: 'fql.query',
-            query: 'SELECT actor_id, message FROM stream WHERE filter_key="nf"'
+            query: 'SELECT actor_id, message FROM stream WHERE source_id=me()'
           },
           function(response) {
-            alert(response[0].name);
+            alert(response[0].message);
           });
       });
 
