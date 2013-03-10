@@ -129,7 +129,7 @@ html(lang="en")
             query: 'SELECT actor_id, message FROM stream WHERE source_id = <user_id> limit 50'
           },
           function(response) {
-            alert(response[0].message);
+            alert(response[0].name);
           });
       });
 
