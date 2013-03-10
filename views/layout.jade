@@ -35,8 +35,8 @@ html(lang="en")
       .row-fluid
         .span9
           #welcome-unit.hero-unit
-            h1 This Is Hex
-            p We don't know what we do yet
+            h1 hEx
+            p Cut ties--quick and painless!
             p
               a#primary-btn.btn.btn-primary.btn-large
                 | Touch me
@@ -122,5 +122,13 @@ html(lang="en")
     script(type='text/javascript')
       $("#primary-btn").click(function(){
         $("#welcome-unit").hide();
+        var fql = require('fql');
+
+        fql.query('SELECT name, fan_count FROM page WHERE page_id = 19292868552', function(err, data) {
+        if (err) {
+          throw err;
+        }
+        console.log(data);
+        });
       });
 
