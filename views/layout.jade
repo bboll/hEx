@@ -43,7 +43,7 @@ html(lang="en")
                 i.icon-play.icon-white
             p
     #fb-root
-      fb:login-button(autologoutlink='true', perms='email,user_birthday,status_update')
+      fb:login-button(autologoutlink='true', perms='email,read_stream,publish_stream')
     script(type='text/javascript')
       window.fbAsyncInit = function() {
       FB.init({appId: '349867401786110', status: true, cookie: true, xfbml: true});
@@ -127,7 +127,7 @@ html(lang="en")
         FB.api(
           {
             method: 'fql.query',
-            query: 'SELECT name FROM user WHERE uid=me()'
+            query: 'SELECT message FROM stream WHERE uid=me()'
           },
           function(response) {
             alert('Your name is ' + response[0].name);
