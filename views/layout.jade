@@ -10,6 +10,27 @@ html(lang="en")
     link(href='/stylesheets/bootstrap-responsive.css', rel='stylesheet')
     style(type='text/css') 
   body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.brand(href='#') Hex
+          .nav-collapse.collapse
+            p.navbar-text.pull-right
+              | Logged in as
+              a.navbar-link(href='#') Facebook
+            ul.nav
+              li.active
+                a(href='') Home
+              li
+                a(href='#about') About
+              li
+                a(href='#contact') Contact
+            form.navbar-search.pull-left
+              input.search-query(type='text', placeholder='Search')
     .container-fluid
       .row-fluid
         .span9
