@@ -1,28 +1,3 @@
 extends layout
 block content
-  p This is where the content of the web page will go (layout.jade)
-    script(type='type', text='text')
-    span.class
-      //
-        mce:0
-      | window.fbAsyncInit = function() {
-      | FB.init({appId: '349867401786110', status: true, cookie: true, xfbml: true});
-      | FB.Event.subscribe('auth.login', function(response) {
-      | login();
-      | });
-      | FB.Event.subscribe('auth.logout', function(response) {
-      | logout();
-      | });
-      | FB.getLoginStatus(function(response) {
-      | if (response.session) {
-      | greet();
-      | }
-      | });
-      | };
-      | (function() {
-      | var e = document.createElement('script');
-      | e.type = 'text/javascript';
-      | e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
-      | e.async = true;
-      | document.getElementById('fb-root').appendChild(e);
-      | }());
+  This is block content from index.jade
