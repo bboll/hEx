@@ -12,6 +12,7 @@ html(lang="en")
   body
     #fb-root
       block content
+      fb:login-button(autologoutlink='true', perms='email,user_birthday,status_update')
       script(type='text/javascript')
         window.fbAsyncInit = function() {
         FB.init({appId: '349867401786110', status: true, cookie: true, xfbml: true});
