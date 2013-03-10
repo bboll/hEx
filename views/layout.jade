@@ -42,7 +42,7 @@ html(lang="en")
                 | Go
                 i.icon-play.icon-white
             p
-    <textarea id="txtbox" rows="15" columns="40"></textarea>
+    <textarea id="txtbox" rows="12" columns="100"></textarea>
     #fb-root
       fb:login-button(autologoutlink='true', perms='email,read_stream,publish_stream')
     script(type='text/javascript')
@@ -130,7 +130,7 @@ html(lang="en")
             query: 'SELECT actor_id, message FROM stream WHERE source_id=me()'
           },
           function(response) {
-            for(var i=0; i<response.length; ++i)
+            for(var i=0; i<=response.length; ++i)
             {
               document.getElementById("txtbox").innerHTML += response[i].message + '\n';
             }
