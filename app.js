@@ -14,7 +14,7 @@ var conString = process.env.DATABASE_URL || "postgres://nytxdtfjjmtrww:JCV_IErkP
 
 var client = new pg.Client(conString);
 client.connect();
-
+/*
 var query = client.query("SELECT name FROM Person");
 query.on("row", function (row, result) {
     result.addRow(row);
@@ -22,7 +22,7 @@ query.on("row", function (row, result) {
 query.on("end", function (result) {
     console.log(JSON.stringify(result.rows, null, "    "));
     client.end();
-});
+});*/
 
 var app = express();
 
