@@ -38,7 +38,7 @@
       <div class="span9">
         <div id="welcome-unit" class="hero-unit">
         <h1>hEx</h1>
-        <p>Cut ties--quick and painless!</p>
+        <p>Hello, today is <?php echo date('l, F jS, Y'); ?>.</p>
         <p>
         <a id="primary-btn" class="btn btn-primary btn-large">Go<i class="icon-play icon-white"></i></a>
         </p>
