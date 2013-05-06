@@ -13,7 +13,14 @@ var pg = require('pg');
 var conString = process.env.DATABASE_URL || "postgres://nytxdtfjjmtrww:JCV_IErkPLD8bzM1IvyzsYWFiA@ec2-54-235-155-40.compute-1.amazonaws.com:5432/d5k9e23rueegif"
 
 var client = new pg.Client(conString);
-client.connect();
+app.get('/', function (req, res) {
+  pg.connect(conString, function (err, client, done) {
+    if(!err) return false;
+    done(client);
+    return true;
+  });
+})
+
 /*
 var query = client.query("SELECT name FROM Person");
 query.on("row", function (row, result) {
