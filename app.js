@@ -36,6 +36,19 @@ http.createServer(app).listen(app.get('port'), function(){
 
 /* Connecting to PostgreSQL DB from Node and reading into JSON file */
 
+var pg = require('pg');
+
+pg.connect(postgres://nytxdtfjjmtrww:JCV_IErkPLD8bzM1IvyzsYWFiA@ec2-54-235-155-40.compute-1.amazonaws.com:5432/d5k9e23rueegif, function(err, client) {
+  var query = client.query('SELECT * FROM Person');
+
+  query.on('row', function(row) {
+    console.log(JSON.stringify(row));
+  });
+});
+
+
+
+/*
 var pg = require("pg");
 
 var conString = "dbname=d5k9e23rueegif host=ec2-54-235-155-40.compute-1.amazonaws.com user=nytxdtfjjmtrww password=JCV_IErkPLD8bzM1IvyzsYWFiA port=5432 sslmode=require";
@@ -51,4 +64,4 @@ query.on("row", function (row, result) {
 query.on("end", function (result) {
     console.log(JSON.stringify(result.rows, null, "    "));
     client.end();
-});
+});*/
