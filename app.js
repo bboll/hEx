@@ -15,7 +15,7 @@ var express = require('express')
 
 client = new pg.Client(conString);
 client.connect();
-//WORK DAMNIT
+/*WORK DAMNIT
 app.get('/', function (req, res) {
   query = client.query('SELECT * FROM Person');
   query.on('row', function(result) {
@@ -28,16 +28,6 @@ app.get('/', function (req, res) {
     }
   });
 
-});
-
-/*
-var query = client.query("SELECT name FROM Person");
-query.on("row", function (row, result) {
-    result.addRow(row);
-});
-query.on("end", function (result) {
-    console.log(JSON.stringify(result.rows, null, "    "));
-    client.end();
 });*/
 
 var app = express();
