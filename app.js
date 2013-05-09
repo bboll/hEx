@@ -9,12 +9,12 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , pg = require('pg').native
-  , conString = process.env.DATABASE_URL || 'postgres://nytxdtfjjmtrww:JCV_IErkPLD8bzM1IvyzsYWFiA@ec2-54-235-155-40.compute-1.amazonaws.com:5432/d5k9e23rueegif'
+  , conString = 'postgres://nytxdtfjjmtrww:JCV_IErkPLD8bzM1IvyzsYWFiA@ec2-54-235-155-40.compute-1.amazonaws.com:5432/d5k9e23rueegif'
   , client;
 
 
-//client = new pg.Client(conString);
-//client.connect();
+client = new pg.Client(conString);
+client.connect();
 /*WORK DAMNIT
 app.get('/', function (req, res) {
   query = client.query('SELECT * FROM Person');
