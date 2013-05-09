@@ -8,9 +8,8 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path')
-  , pg = require('pg').native
-  , conString = 'postgres://nytxdtfjjmtrww:JCV_IErkPLD8bzM1IvyzsYWFiA@ec2-54-235-155-40.compute-1.amazonaws.com:5432/d5k9e23rueegif'
-  , client;
+  , pg = require('pg')
+  , conString = "postgres://nytxdtfjjmtrww:JCV_IErkPLD8bzM1IvyzsYWFiA@ec2-54-235-155-40.compute-1.amazonaws.com:5432/d5k9e23rueegif";
 
 
 /*WORK DAMNIT
@@ -53,6 +52,12 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
 
-/* Connecting to PostgreSQL DB from Node and reading into JSON file */
-client = new pg.Client(conString);
-client.connect();
+pg.connect(process.env.DATABASE_URL, function(err, client) {
+  var query = client.query('SELECT * FROM Person');
+
+  query.on('row', function(row) {
+    console.log(JSON.stringify(row));
+  });
+}); 
+
+
