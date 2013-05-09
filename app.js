@@ -58,11 +58,12 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 
 }); 
 
-    fs.writeFile(outputFilename, JSON.stringify(myData, null, 4), function (err){
-      if(err) {
-        console.log(error);}
-      else {
-        console.log("JSON saved to person.json");
-      }
-    });
+//fs.writeFile(outputFilename, JSON.stringify(myData, null, 4), function (err){
+fs.writeFile('package.json', 'Hello Node', function (err){
+  if(err) {
+    console.log(error);}
+  else {
+    console.log("JSON saved to person.json");
+  }
+});
 
