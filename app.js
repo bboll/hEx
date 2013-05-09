@@ -46,8 +46,13 @@ var myData = {
 pg.connect(process.env.DATABASE_URL, function(err, client) {
   var query = client.query('SELECT * FROM Person');
 
-  query.on('row', function(row) {
+  query.on('row', function(row, result) {
     //console.log(JSON.stringify(row));
+    result.addRow(row);
+
+  });
+}); 
+
     fs.writeFile(outputFilename, JSON.stringify(myData, null, 4), function (err){
       if(err) {
         console.log(error);}
@@ -55,8 +60,4 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
         console.log("JSON saved to person.json");
       }
     });
-
-  });
-}); 
-
 
