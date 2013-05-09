@@ -8,24 +8,8 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path')
-  , pg = require('pg')
-  , conString = "postgres://nytxdtfjjmtrww:JCV_IErkPLD8bzM1IvyzsYWFiA@ec2-54-235-155-40.compute-1.amazonaws.com:5432/d5k9e23rueegif";
-
-
-/*WORK DAMNIT
-app.get('/', function (req, res) {
-  query = client.query('SELECT * FROM Person');
-  query.on('row', function(result) {
-    console.log(result);
-
-    if (!result) {
-      return res.send('No data found'); }
-    else {
-      res.send('Query complete');
-    }
-  });
-
-});*/
+  , pg = require('pg').native
+  , fs = require('fs');
 
 var app = express();
 
@@ -52,11 +36,20 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
 
+var outputFilename = './person.json';
+
 pg.connect(process.env.DATABASE_URL, function(err, client) {
   var query = client.query('SELECT * FROM Person');
 
   query.on('row', function(row) {
-    console.log(JSON.stringify(row));
+    //console.log(JSON.stringify(row));
+    fs.writeFile(outputFilename, JSON.stringify(row, null, 4), function (err){
+      if(err) {
+        console.log(error);}
+      else {
+        console.log("JSON saved to person.json");
+      }
+    });
   });
 }); 
 
