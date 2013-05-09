@@ -8,7 +8,7 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path')
-  , pg = require('pg').native
+  , pg = require('pg')
   , fs = require('fs');
 
 var app = express();
