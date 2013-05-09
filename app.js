@@ -13,8 +13,8 @@ var express = require('express')
   , client;
 
 
-client = new pg.Client(conString);
-client.connect();
+//client = new pg.Client(conString);
+//client.connect();
 /*WORK DAMNIT
 app.get('/', function (req, res) {
   query = client.query('SELECT * FROM Person');
