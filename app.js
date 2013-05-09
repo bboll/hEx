@@ -52,7 +52,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 
   });
 }); 
-
+/*
     fs.writeFile(outputFilename, JSON.stringify(myData, null, 4), function (err){
       if(err) {
         console.log(error);}
@@ -60,4 +60,4 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
         console.log("JSON saved to person.json");
       }
     });
-
+*/
