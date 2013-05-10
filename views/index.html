@@ -142,8 +142,8 @@ alert('please log in first :)');
 
 <script type="text/javascript">
 $(document).ready(function(){
-  $.getJSON( 'person.json', null, function( json ) {
-  $('#table').dataTable(json);
+  $.getJSON( 'person.json', function( json ) {
+  $('#table').dataTable();
   });
 });
 
