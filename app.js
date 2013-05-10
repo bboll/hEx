@@ -38,7 +38,7 @@ http.createServer(app).listen(app.get('port'), function(){
 
 var Filename = './person.json';
 
-var rows = [];
+var rows = {};
 /*var myData = {
   name: 'test',
   version:'1.0'
@@ -54,6 +54,9 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
   });
   query.on('end', function(result) {
     console.log(result.rowCount + ' rows were received');
+  });
+
+}); 
 
 //fs.writeFile(outputFilename, JSON.stringify(myData, null, 4), function (err){
 fs.writeFile(Filename, JSON.stringify(rows, null, 4), function (err){
@@ -63,11 +66,6 @@ fs.writeFile(Filename, JSON.stringify(rows, null, 4), function (err){
     console.log("JSON saved to person.json");
   }
 });
-    
-  });
-
-}); 
-
 
 fs.readFile(Filename, "utf-8", function (err, data) {
   if (err) throw err;
