@@ -36,25 +36,21 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
 
-var Filename = './person.json';
+var file = './person.json';
 
 var rows = [];
-var myData = {
-  name: 'test',
-  version:'1.0'
-}
+var tmpStr;
 
 pg.connect(process.env.DATABASE_URL, function(err, client) {
   var query = client.query('SELECT * FROM Person');
 
   query.on('row', function(row) {
-    console.log(JSON.stringify(row));
+    //console.log(JSON.stringify(row));
     rows.push(row);
 
   });
   query.on('end', function() {
-  //fs.writeFile(outputFilename, JSON.stringify(myData, null, 4), function (err){
-    fs.writeFile(Filename, JSON.stringify(rows, null, 4), function (err){
+    fs.writeFile(file, JSON.stringify(rows, null, 4), function (err){
       if(err) {
         console.log(error);}
     });
@@ -63,8 +59,9 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 }); 
 
 
-fs.readFile(Filename, "utf-8", function (err, data) {
+fs.readFile(file, "utf-8", function (err, data) {
   if (err) throw err;
-    console.log(data);
+    tmpStr = JSON.parse(data);
+    console.log(tmpStr);
 
 });
