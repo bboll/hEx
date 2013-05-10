@@ -57,13 +57,13 @@
 <table id="table">
     <thead>
         <tr>
-            <th>Column 1</th>
-            <th>Column 2</th>
-            <th>etc</th>
-            <th>etc</th>
-            <th>etc</th>
-            <th>etc</th>
-            <th>etc</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Age</th>
+            <th>FB ID</th>
+            <th>Favorite Rec.</th>
+            <th>Date Single</th>
+            <th>Hex ID</th>
         </tr>
     </thead>
     <tbody>
@@ -142,7 +142,9 @@ alert('please log in first :)');
 
 <script type="text/javascript">
 $(document).ready(function(){
-  $('#table').dataTable();
+  $.getJSON( 'person.json', null, function( json ) {
+  $('#table').dataTable(json);
+  });
 });
 
 $("#primary-btn").click(function(){
