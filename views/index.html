@@ -7,7 +7,9 @@
   <meta name="description" content="Makes cutting Facebook ties easy.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
   <style type="text/css"> </style>
+ 
 </head>
 <body>
   <div class="navbar navbar-inverse navbar-fixed-top">
@@ -52,6 +54,27 @@
   <!-- Permissions here -->
   <fb:login-button autologoutlink="true" perms="email,read_stream,publish_stream"></fb:login-button>
   </div>
+
+<table id="table">
+    <thead>
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>etc</th>
+            <th>etc</th>
+            <th>etc</th>
+            <th>etc</th>
+            <th>etc</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+
+
+
+
 
 <script type="text/javascript">
 window.fbAsyncInit = function() {
@@ -120,8 +143,16 @@ function setStatus(){
 
 <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 
-<script type="text/javascript">$("#primary-btn").click(function(){
+<script type="text/javascript">
+
+$(document).ready(function(){
+  $('#table').dataTable();
+});
+
+$("#primary-btn").click(function(){
   $("#welcome-unit").hide();
   
   FB.api(
