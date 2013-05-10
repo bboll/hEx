@@ -51,7 +51,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 
   });
   query.on('end', function() {
-    console.log(util.inspect(rows); 
+    console.log(util.inspect(rows)); 
   });
 
 }); 
