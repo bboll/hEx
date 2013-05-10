@@ -9,7 +9,6 @@
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
   <style type="text/css"> </style>
- 
 </head>
 <body>
   <div class="navbar navbar-inverse navbar-fixed-top">
@@ -40,7 +39,7 @@
       <div class="span9">
         <div id="welcome-unit" class="hero-unit">
         <h1>hEx</h1>
-        <p>Cut ties--quick and painless!</p>
+        <p>Hello.</p>
         <p>
         <a id="primary-btn" class="btn btn-primary btn-large">Go<i class="icon-play icon-white"></i></a>
         </p>
@@ -49,11 +48,11 @@
     </div>
   </div>
 
-  <textarea id="txtbox" rows="12" columns="100"></textarea>
-  <div id="fb-root">
-  <!-- Permissions here -->
-  <fb:login-button autologoutlink="true" perms="email,read_stream,publish_stream"></fb:login-button>
-  </div>
+<textarea id="txtbox" rows="12" columns="100"></textarea>
+<div id="fb-root">
+<!-- Permissions here -->
+<fb:login-button autologoutlink="true" perms="email,read_stream,publish_stream"></fb:login-button>
+</div>
 
 <table id="table">
     <thead>
@@ -71,73 +70,68 @@
     </tbody>
 </table>
 
-
-
-
-
-
 <script type="text/javascript">
 window.fbAsyncInit = function() {
-  FB.init({appId: '349867401786110', status: true, cookie: true, xfbml: true});
-  FB.Event.subscribe('auth.login', function(response) {
-    login();
-  });
-  FB.Event.subscribe('auth.logout', function(response) {
-    logout();
-  });
-  FB.getLoginStatus(function(response) {
-    if (response.session) {
-      greet();
-    }
-  });
+FB.init({appId: '349867401786110', status: true, cookie: true, xfbml: true});
+FB.Event.subscribe('auth.login', function(response) {
+login();
+});
+FB.Event.subscribe('auth.logout', function(response) {
+logout();
+});
+FB.getLoginStatus(function(response) {
+if (response.session) {
+greet();
+}
+});
 };
 
 (function() {
-  var e = document.createElement('script');
-  e.type = 'text/javascript';
-  e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
-  e.async = true;
-  document.getElementById('fb-root').appendChild(e);
+var e = document.createElement('script');
+e.type = 'text/javascript';
+e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+e.async = true;
+document.getElementById('fb-root').appendChild(e);
 }());
 
 function login(){
-  FB.api('/me', function(response) {
-    alert('You have successfully logged in, '+response.name+"!");
-  });
+FB.api('/me', function(response) {
+alert('You have successfully logged in, '+response.name+"!");
+});
 }
 
 function logout(){
-  alert('You have successfully logged out!');
+alert('You have successfully logged out!');
 }
 
 function greet(){
-  FB.api('/me', function(response) {
-    alert('Welcome, '+response.name+"!");
-  });
+FB.api('/me', function(response) {
+alert('Welcome, '+response.name+"!");
+});
 }
 
 function setStatus(){
-  //check if user is logged in:
-  FB.getLoginStatus(function(response) {
-    if (response.session) {
-      new_status = document.getElementById('status').value;
-        FB.api({
-          method: 'status.set',
-          status: new_status
-        },
-        function(response) {
-          if (response == 0){
-            alert('Your facebook status not updated. Give Status Update Permission.');
-          }
-          else{
-            alert('Your facebook status updated');
-          }
-        });
-    } 
-    else {
-      alert('please log in first :)');
-    }
-  });
+//check if user is logged in:
+FB.getLoginStatus(function(response) {
+if (response.session) {
+new_status = document.getElementById('status').value;
+FB.api({
+method: 'status.set',
+status: new_status
+},
+function(response) {
+if (response == 0){
+alert('Your facebook status not updated. Give Status Update Permission.');
+}
+else{
+alert('Your facebook status updated');
+}
+});
+}
+else {
+alert('please log in first :)');
+}
+});
 }
 </script>
 
@@ -147,25 +141,23 @@ function setStatus(){
 <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 
 <script type="text/javascript">
-
 $(document).ready(function(){
   $('#table').dataTable();
 });
 
 $("#primary-btn").click(function(){
-  $("#welcome-unit").hide();
-  
-  FB.api(
-    {
-      method: 'fql.query',
-      query: 'SELECT actor_id, message FROM stream WHERE source_id=me()'
-    },
-    function(response) {
-      for(var i=0; i<=response.length; ++i)
-      {
-        document.getElementById("txtbox").innerHTML += response[i].message + '\n';
-      }
-    });
+$("#welcome-unit").hide();
+FB.api(
+{
+method: 'fql.query',
+query: 'SELECT actor_id, message FROM stream WHERE source_id=me()'
+},
+function(response) {
+for(var i=0; i<=response.length; ++i)
+{
+document.getElementById("txtbox").innerHTML += response[i].message + '\n';
+}
+});
 });
 </script>
 
