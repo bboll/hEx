@@ -52,7 +52,6 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
   query.on('end', function() {
   });
 
-}); 
 
 tmpStr = JSON.stringify(rows);
 
@@ -69,3 +68,4 @@ fs.readFile(file, "utf-8", function (err, data) {
     //console.log(data);
 
 });
+}); 
