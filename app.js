@@ -39,10 +39,10 @@ http.createServer(app).listen(app.get('port'), function(){
 var outputFilename = './person.json';
 
 var rows = [];
-var myData = {
+/*var myData = {
   name: 'test',
   version:'1.0'
-}
+}*/
 
 pg.connect(process.env.DATABASE_URL, function(err, client) {
   var query = client.query('SELECT * FROM Person');
@@ -59,7 +59,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 }); 
 
 //fs.writeFile(outputFilename, JSON.stringify(myData, null, 4), function (err){
-fs.writeFile(outputFilename, JSON.stringify(myData, null, 4), function (err){
+fs.writeFile(outputFilename, JSON.stringify(rows, null, 4), function (err){
   if(err) {
     console.log(error);}
   else {
