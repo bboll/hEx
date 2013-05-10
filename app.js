@@ -49,12 +49,12 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 
   query.on('row', function(row) {
     //console.log(JSON.stringify(row));
-    rows.push(row);
+    rows.push(JSON.stringify(row));
 
   });
-  query.on('end', function(result) {
+  query.on('end', function() {
   //fs.writeFile(outputFilename, JSON.stringify(myData, null, 4), function (err){
-    fs.writeFile(Filename, JSON.stringify(result, null, 4), function (err){
+    fs.writeFile(Filename, JSON.stringify(rows, null, 4), function (err){
       if(err) {
         console.log(error);}
     });
