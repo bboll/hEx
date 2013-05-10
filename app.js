@@ -9,7 +9,8 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , pg = require('pg')
-  , fs = require('fs');
+  , fs = require('fs')
+  , util = require('util');
 
 var app = express();
 
@@ -50,6 +51,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 
   });
   query.on('end', function() {
+    console.log(util.inspect(rows); 
   });
 
 }); 
@@ -63,6 +65,6 @@ fs.readFile(file, "utf-8", function (err, data) {
   if (err) throw err;
     /*tmpStr = JSON.parse(data);
     console.log(tmpStr);*/
-    console.log(data);
+    //console.log(data);
 
 });
