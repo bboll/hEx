@@ -67,7 +67,7 @@ fs.writeFile(outputFilename, JSON.stringify(myData, null, 4), function (err){
   }
 });
 
-fs.readFile('person.json', function(err, data) {
+fs.readFile('person.json', String, function(err, data) {
   if (err) throw err;
     console.log(data);
 
