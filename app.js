@@ -55,7 +55,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 
 }); 
 
-    fs.writeFile(file, JSON.stringify(rows), function (err){
+    fs.writeFile(file, JSON.stringify(), function (err){
       if(err) {
         console.log(error);}
     console.log(util.inspect(rows)); 
