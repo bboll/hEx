@@ -36,7 +36,7 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
 
-var outputFilename = './person.json';
+var Filename = './person.json';
 
 var rows = [];
 /*var myData = {
@@ -59,7 +59,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 }); 
 
 //fs.writeFile(outputFilename, JSON.stringify(myData, null, 4), function (err){
-fs.writeFile(outputFilename, JSON.stringify(rows, null, 4), function (err){
+fs.writeFile(Filename, JSON.stringify(rows, null, 4), function (err){
   if(err) {
     console.log(error);}
   else {
@@ -67,7 +67,7 @@ fs.writeFile(outputFilename, JSON.stringify(rows, null, 4), function (err){
   }
 });
 
-fs.readFile('person.json', "utf-8", function(err, data) {
+fs.readFile(Filename, "utf-8", function (err, data) {
   if (err) throw err;
     console.log(data);
 
