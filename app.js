@@ -63,7 +63,7 @@ fs.readFile(file, "utf-8", function (err, data) {
   if (err) throw err;
     /*tmpStr = JSON.parse(data);
     console.log(tmpStr);*/
-    //console.log(data);
+    console.log(data);
 
 });
 
