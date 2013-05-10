@@ -39,7 +39,7 @@ http.createServer(app).listen(app.get('port'), function(){
 
 var file = './person.json';
 
-var rows = [];
+var rows = new Array();
 
 pg.connect(process.env.DATABASE_URL, function(err, client) {
   var query = client.query('SELECT * FROM Person');
