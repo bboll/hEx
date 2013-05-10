@@ -54,11 +54,11 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 
 
 tmpStr = JSON.stringify(rows);
+console.log(util.inspect(tmpStr));
 
     fs.writeFile(file, tmpStr, function (err){
       if(err) {
         console.log(error);}
-        console.log(tmpStr);
     });
 
 fs.readFile(file, "utf-8", function (err, data) {
