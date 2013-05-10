@@ -52,18 +52,19 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
   query.on('end', function() {
     tmpStr = JSON.stringify(rows);
     //console.log(util.inspect(tmpStr));
-    fs.writeFile(file, tmpStr, function (err){
+    fs.writeFileSync(file, tmpStr, function (err){
       if(err) {
         console.log(error);}
-      console.log(tmpStr);
+      //console.log(tmpStr); shows the string as it should be... vexing...
     });
   });
 });
 
-fs.readFile(file, "utf-8", function (err, data) {
+fs.readFileSync(file, "utf-8", function (err, data) {
   if (err) throw err;
     /*tmpStr = JSON.parse(data);
     console.log(tmpStr);*/
+    console.log(data);
     //console.log(util.inspect(tmpStr));
 
 });
