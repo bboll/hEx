@@ -51,10 +51,11 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
   });
   query.on('end', function() {
     tmpStr = JSON.stringify(rows);
-    console.log(util.inspect(tmpStr));
+    //console.log(util.inspect(tmpStr));
     fs.writeFile(file, tmpStr, function (err){
       if(err) {
         console.log(error);}
+      console.log(tmpStr);
     });
   });
 });
