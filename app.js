@@ -39,8 +39,6 @@ http.createServer(app).listen(app.get('port'), function(){
 
 var file = './person.json';
 
-var tmpStr = '';
-var tmpStr2 = '';
 var rows = [];
 
 pg.connect(process.env.DATABASE_URL, function(err, client) {
@@ -52,14 +50,14 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 
   });
   query.on('end', function() {
-    tmpStr = JSON.stringify(rows);
+    var tmpStr = JSON.stringify(rows);
     fs.writeFileSync(file, tmpStr);
     //console.log(tmpStr);
   });
 });
 
-tmpStr2 = fs.readFileSync(file, "utf-8");
-console.log(util.inspect(tmpStr2));
+var data = fs.readFileSync(file, "utf-8");
+console.log(data);
 //console.log(tmpStr2);
 
 
