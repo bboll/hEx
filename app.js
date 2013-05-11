@@ -53,14 +53,13 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
   });
   query.on('end', function() {
     tmpStr = JSON.stringify(rows);
-    //console.log(util.inspect(tmpStr));
     fs.writeFileSync(file, tmpStr);
-    console.log(tmpStr);
+    //console.log(tmpStr);
   });
 });
 
 tmpStr2 = fs.readFileSync(file, "utf8");
-//console.log(util.inspect(tmpStr));
-console.log(tmpStr2);
+console.log(util.inspect(tmpStr2));
+//console.log(tmpStr2);
 
 
