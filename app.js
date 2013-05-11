@@ -59,9 +59,8 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
   });
 });
 
-/*tmpStr2 = fs.readFileSync(file, "utf8");
+tmpStr2 = fs.readFileSync(file, "utf8");
 //console.log(util.inspect(tmpStr));
 console.log(tmpStr2);
 
-});*/
 
