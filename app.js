@@ -39,7 +39,9 @@ http.createServer(app).listen(app.get('port'), function(){
 
 var file = './person.json';
 
-var rows = new Array();
+var tmpStr;
+var tmpStr2;
+var rows = [];
 
 pg.connect(process.env.DATABASE_URL, function(err, client) {
   var query = client.query('SELECT * FROM Person');
@@ -52,20 +54,14 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
   query.on('end', function() {
     tmpStr = JSON.stringify(rows);
     //console.log(util.inspect(tmpStr));
-    fs.writeFileSync(file, tmpStr, function (err){
-      if(err) {
-        console.log(error);}
-      //console.log(tmpStr); shows the string as it should be... vexing...
-    });
+    fs.writeFileSync(file, tmpStr);
+
   });
 });
 
-fs.readFileSync(file, "utf-8", function (err, data) {
-  if (err) throw err;
-    /*tmpStr = JSON.parse(data);
-    console.log(tmpStr);*/
-    console.log(data);
-    //console.log(util.inspect(tmpStr));
+tmpStr2 = fs.readFileSync(file, "utf8");
+//console.log(util.inspect(tmpStr));
+console.log(tmpStr2);
 
 });
 
