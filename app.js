@@ -42,20 +42,20 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 //app.get('/person.json', function(req, res) {
 pg.connect(process.env.DATABASE_URL, function(err, client) {
-  var query = client.query('SELECT * FROM Person');
+  var query = client.query('SELECT row_to_json(person) FROM person');
 
-  query.on('row', function(row) {
+  /*query.on('row', function(row) {
     rows.push(row);
   });
   query.on('end', function() {
     var tmpStr = JSON.stringify(rows);
     //fs.writeFileSync(file, tmpStr);
-  });
+  });*/
 });
-  //console.log(tmpStr);
-  res.send(tmpStr);
+  console.log(query);
+  //res.send(tmpStr);
 //}
 
-});
+//});
 
 
