@@ -42,8 +42,8 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
 
-app.get('/person.json', function(req, res) {
-/*pg.connect(process.env.DATABASE_URL, function(err, client) {
+/*app.get('/person.json', function(req, res) {
+pg.connect(process.env.DATABASE_URL, function(err, client) {
   var query = client.query('SELECT * FROM Person');
 
   query.on('row', function(row) {
@@ -53,9 +53,9 @@ app.get('/person.json', function(req, res) {
     var tmpStr = JSON.stringify(rows);
     //fs.writeFileSync(file, tmpStr);
   });
-});*/
+});
 var tmpStr = "Bar";
   //console.log(tmpStr);
   res.send(tmpStr);
-}
+}*/
 
