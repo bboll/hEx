@@ -50,7 +50,7 @@ function onRequest(request, response) {
 function route(pathname) {
   console.log("About to route a request for " + pathname);
   app.get('/', function(req, res){
-    res.render('layout', {title: 'hEx'});
+    res.render('layout.jade', {title: 'hEx'});
     res.contentType('text/HTML');
     console.log('Handling GET request');
   });
