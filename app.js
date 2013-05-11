@@ -51,7 +51,7 @@ function route(pathname) {
   console.log("About to route a request for " + pathname);
   app.get('/', function(req, res){
     res.render('layout', {title: 'hEx'}, function(err, html) {
-      console.log(html)
+      console.log('Rendering');
     });
   });
 }
