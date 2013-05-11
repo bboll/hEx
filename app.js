@@ -23,7 +23,7 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(app.router);
+  //app.use(app.router);
   //app.use(express.static(path.join(__dirname, 'public')));
 });
 
@@ -50,9 +50,9 @@ function onRequest(request, response) {
 function route(pathname) {
   console.log("About to route a request for " + pathname);
   app.get('/', function(req, res){
-    res.render('/views/layout', {title: 'hEx'}, function(err, html) {
-      console.log('Rendering');
+    res.render('layout', {title: 'hEx'}, function(err, html) {
     });
+      console.log('Rendering');
   });
 }
 
