@@ -45,12 +45,14 @@ function onRequest(request, response) {
   console.log("Request for " + pathname + " received.");
 
   route(pathname);
-
   response.end();
 }
 
 function route(pathname) {
   console.log("About to route a request for " + pathname);
+  app.get(pathname, function(req, res){
+    res.sendfile(__dirname + '/views/index.html');
+  });
 }
 
 
