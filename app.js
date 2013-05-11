@@ -38,7 +38,7 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 
 app.get('/person.json', function(req, res) {
-pg.connect(process.env.DATABASE_URL, function(err, client) {
+/*pg.connect(process.env.DATABASE_URL, function(err, client) {
   var query = client.query('SELECT * FROM Person');
 
   query.on('row', function(row) {
@@ -48,8 +48,8 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
     var tmpStr = JSON.stringify(rows);
     //fs.writeFileSync(file, tmpStr);
   });
-});
-
+});*/
+var tmpStr = "Bar";
   //console.log(tmpStr);
   res.send(tmpStr);
 }
