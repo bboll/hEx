@@ -34,6 +34,10 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+http.createServer(app).listen(app.get('port'), function(){
+  console.log("Express server listening on port " + app.get('port'));
+});
+
 app.get('/', routes.index);
 app.get('/users', user.list);
 
@@ -54,6 +58,3 @@ var tmpStr = "Bar";
   res.send(tmpStr);
 }
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
-});
