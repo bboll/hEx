@@ -53,4 +53,4 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 });
     console.log(tmpStr);
     console.log(util.inspect(tmpStr));
-    fs.writeFileSync(file, tmpStr);
+    fs.writeFileSync(file, tmpStr, "utf8");
