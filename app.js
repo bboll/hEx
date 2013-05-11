@@ -34,12 +34,13 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
-});
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+
+http.createServer(app).listen(app.get('port'), function(){
+  console.log("Express server listening on port " + app.get('port'));
+});
 
 app.get('/person.json', function(req, res) {
 /*pg.connect(process.env.DATABASE_URL, function(err, client) {
