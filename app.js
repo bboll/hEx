@@ -40,9 +40,7 @@ app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
-});
-
-/*app.get('/person.json', function(req, res) {
+//app.get('/person.json', function(req, res) {
 pg.connect(process.env.DATABASE_URL, function(err, client) {
   var query = client.query('SELECT * FROM Person');
 
@@ -54,8 +52,10 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
     //fs.writeFileSync(file, tmpStr);
   });
 });
-var tmpStr = "Bar";
   //console.log(tmpStr);
   res.send(tmpStr);
-}*/
+//}
+
+});
+
 
