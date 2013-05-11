@@ -31,9 +31,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', function(req, res){
-  res.sendfile(__dirname + '/views/index.html');
-});
+//app.get('/', routes.index);
 app.get('/users', user.list);
 
 var file = '/person.json';
