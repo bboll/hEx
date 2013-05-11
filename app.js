@@ -14,10 +14,6 @@ var express = require('express')
 
 var app = express();
 
-var file = '/person.json';
-
-var rows = [];
-
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
@@ -38,24 +34,21 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/users', user.list);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
-//app.get('/person.json', function(req, res) {
-pg.connect(process.env.DATABASE_URL, function(err, client) {
-  var query = client.query('SELECT row_to_json(person) FROM person');
+var file = '/person.json';
+var rows = [];
 
-  /*query.on('row', function(row) {
+pg.connect(process.env.DATABASE_URL, function(err, client) {
+  var query = client.query('SELECT * FROM Person');
+
+  query.on('row', function(row) {
     rows.push(row);
   });
   query.on('end', function() {
     var tmpStr = JSON.stringify(rows);
-    //fs.writeFileSync(file, tmpStr);
-  });*/
+    fs.writeFileSync(file, tmpStr);
+  });
 });
-  console.log(query);
-  //res.send(tmpStr);
-//}
 
-//});
-
-
+http.createServer(app).listen(app.get('port'), function(){
+  console.log("Express server listening on port " + app.get('port'));
+});
