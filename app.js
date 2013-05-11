@@ -50,9 +50,11 @@ function onRequest(request, response) {
 function route(pathname) {
   console.log("About to route a request for " + pathname);
   app.get('/', function(req, res){
-    res.render('layout', {title: 'hEx'}, function(err, html) {
+    res.contentType('text/HTML');
+    res.render('layout');
+    res.end();
     });
-      console.log('Rendering');
+      console.log('Handling GET request');
   });
 }
 
