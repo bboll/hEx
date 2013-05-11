@@ -24,7 +24,7 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   //app.use(app.router);
-  //app.use(express.static(path.join(__dirname, 'public')));
+  app.use(express.static(path.join(__dirname, 'public')));
 });
 
 app.configure('development', function(){
@@ -51,9 +51,8 @@ function route(pathname) {
   console.log("About to route a request for " + pathname);
   app.get('/', function(req, res){
     //res.contentType('text/HTML');
-    res.render('layout');
+    res.render('layout.jade');
     console.log('Handling GET request');
-    res.end();
   });
 }
 
