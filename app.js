@@ -50,7 +50,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
   });
 });
 
-  console.log(tmpStr);
+  //console.log(tmpStr);
   res.send(tmpStr);
 }
 
