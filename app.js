@@ -41,26 +41,21 @@ var file = '/person.json';
 
 var rows = [];
 
-app.get('/person.json', function(req, res) {
 pg.connect(process.env.DATABASE_URL, function(err, client) {
   var query = client.query('SELECT * FROM Person');
 
   query.on('row', function(row) {
-    //console.log(JSON.stringify(row));
     rows.push(row);
-
   });
   query.on('end', function() {
     var tmpStr = JSON.stringify(rows);
+    fs.writeFileSync(file, tmpStr);
   });
 });
+
+app.get('/person.json', function(req, res) {
   console.log(tmpStr);
   res.send(tmpStr);
 }
-    /*fs.writeFileSync(file, tmpStr);
-    //console.log(tmpStr);
-var data = fs.readFileSync(file, "utf-8");
-console.log(data);
-//console.log(tmpStr2);*/
 
 
