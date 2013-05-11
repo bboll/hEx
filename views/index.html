@@ -142,11 +142,14 @@ alert('please log in first :)');
 
 <script type="text/javascript">
 $(document).ready(function(){
+  $.getJSON( '/person.json', function(json) {
+    $('#table').dataTable(json);
+  });
 });
 
 $("#primary-btn").click(function(){
 $("#welcome-unit").hide();
-FB.api(
+/*FB.api(
 {
 method: 'fql.query',
 query: 'SELECT actor_id, message FROM stream WHERE source_id=me()'
@@ -156,7 +159,7 @@ for(var i=0; i<=response.length; ++i)
 {
 document.getElementById("txtbox").innerHTML += response[i].message + '\n';
 }
-});
+});*/
 });
 </script>
 
