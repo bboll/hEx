@@ -48,6 +48,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
   });
   query.on('end', function() {
     var tmpStr = JSON.stringify(rows);
-    //fs.writeFileSync(file, tmpStr);
   });
 });
+    console.log(tmpStr);
+    fs.writeFileSync(file, tmpStr);
