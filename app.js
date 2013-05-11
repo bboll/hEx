@@ -41,6 +41,7 @@ var file = './person.json';
 
 var rows = [];
 
+app.get('/person.json', function(req, res) {
 pg.connect(process.env.DATABASE_URL, function(err, client) {
   var query = client.query('SELECT * FROM Person');
 
@@ -51,13 +52,15 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
   });
   query.on('end', function() {
     var tmpStr = JSON.stringify(rows);
-    fs.writeFileSync(file, tmpStr);
-    //console.log(tmpStr);
   });
 });
-
+  console.log(tmpStr);
+  res.send(tmpStr);
+}
+    /*fs.writeFileSync(file, tmpStr);
+    //console.log(tmpStr);
 var data = fs.readFileSync(file, "utf-8");
 console.log(data);
-//console.log(tmpStr2);
+//console.log(tmpStr2);*/
 
 
