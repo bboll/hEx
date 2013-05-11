@@ -33,6 +33,11 @@ app.configure('development', function(){
 
 //app.get('/', routes.index);
 app.get('/users', user.list);
+app.get('/', function(req, res){
+    //res.render('layout.jade', {title: 'hEx'});
+    //res.contentType('text/HTML');
+    console.log('Handling GET request');
+});
 
 var file = '/person.json';
 var rows = [];
@@ -49,11 +54,6 @@ function onRequest(request, response) {
 
 function route(pathname) {
   console.log("About to route a request for " + pathname);
-  app.get('/', function(req, res){
-    //res.render('layout.jade', {title: 'hEx'});
-    //res.contentType('text/HTML');
-    console.log('Handling GET request');
-  });
 }
 
 http.createServer(onRequest).listen(app.get('port'), function(){
