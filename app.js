@@ -53,8 +53,7 @@ function route(pathname) {
     res.contentType('text/HTML');
     res.render('layout');
     res.end();
-    });
-      console.log('Handling GET request');
+    console.log('Handling GET request');
   });
 }
 
