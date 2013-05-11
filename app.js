@@ -10,7 +10,8 @@ var express = require('express')
   , path = require('path')
   , pg = require('pg')
   , fs = require('fs')
-  , util = require('util');
+  , util = require('util')
+  , url = require('url');
 
 var app = express();
 
@@ -37,10 +38,23 @@ var file = '/person.json';
 var rows = [];
 var tmpStr;
 
+function app(request, response) {
+  var pathname = url.parse(request.url).pathname;
+  console.log("Request for " + pathname + " received.");
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.write("Hello World");
+  response.end();
+}
+
+function route(pathname) {
+  console.log("About to route a request for " + pathname);
+}
+
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
-
+/*
 pg.connect(process.env.DATABASE_URL, function(err, client) {
   var query = client.query('SELECT * FROM Person');
 
@@ -49,8 +63,8 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
   });
   query.on('end', function() {
     tmpStr = JSON.stringify(rows);
-    fs.writeFileSync(file, tmpStr, "utf8");
+    //fs.writeFileSync(file, tmpStr, "utf8");
   });
 });
-    /*console.log(tmpStr);
+    console.log(tmpStr);
     console.log(util.inspect(tmpStr));*/
