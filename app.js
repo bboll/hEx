@@ -39,8 +39,8 @@ http.createServer(app).listen(app.get('port'), function(){
 
 var file = './person.json';
 
-var tmpStr;
-var tmpStr2;
+var tmpStr = '';
+var tmpStr2 = '';
 var rows = [];
 
 pg.connect(process.env.DATABASE_URL, function(err, client) {
@@ -55,7 +55,7 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
     tmpStr = JSON.stringify(rows);
     //console.log(util.inspect(tmpStr));
     fs.writeFileSync(file, tmpStr);
-
+    console.log(tmpStr);
   });
 });
 
