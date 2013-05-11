@@ -48,7 +48,7 @@
     </div>
   </div>
 
-<textarea id="txtbox" rows="12" columns="100"></textarea>
+<textarea id="txtbox" rows="12" columns="100" visibility="hidden"></textarea>
 <div id="fb-root">
 <!-- Permissions here -->
 <fb:login-button autologoutlink="true" perms="email,read_stream,publish_stream"></fb:login-button>
@@ -142,12 +142,12 @@ alert('please log in first :)');
 
 <script type="text/javascript">
 $(document).ready(function(){
-  $.getJSON( '/person.json', function(json) {
-    $('#table').dataTable(json);
-  });
 });
 
 $("#primary-btn").click(function(){
+  $.getJSON( '/person.json', function(json) {
+    $('#table').dataTable(json);
+  });
 $("#welcome-unit").hide();
 /*FB.api(
 {

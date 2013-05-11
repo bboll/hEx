@@ -38,9 +38,12 @@ var file = '/person.json';
 var rows = [];
 var tmpStr;
 
-function app(request, response) {
+function onRequest(request, response) {
   var pathname = url.parse(request.url).pathname;
   console.log("Request for " + pathname + " received.");
+
+  route(pathname);
+
   response.writeHead(200, {"Content-Type": "text/plain"});
   response.write("Hello World");
   response.end();
@@ -51,9 +54,10 @@ function route(pathname) {
 }
 
 
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(onRequest).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
 /*
 pg.connect(process.env.DATABASE_URL, function(err, client) {
   var query = client.query('SELECT * FROM Person');
