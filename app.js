@@ -8,7 +8,6 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path')
-  , pg = require('pg')
   , fs = require('fs')
   , util = require('util')
   , url = require('url');
@@ -34,7 +33,6 @@ app.configure('development', function(){
 //app.get('/', routes.index);
 app.get('/users', user.list);
 
-var file = '/person.json';
 var rows = [];
 var tmpStr;
 
@@ -52,26 +50,11 @@ function route(pathname) {
 }
 
 app.get('/', function(req, res){
-    //res.render('layout.jade', {title: 'hEx'});
-    //res.contentType('text/HTML');
+    res.render('layout.jade', {title: 'hEx'});
+    res.contentType('text/HTML');
     console.log('Handling GET request');
 });
 
 http.createServer(onRequest).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
-
-/*
-pg.connect(process.env.DATABASE_URL, function(err, client) {
-  var query = client.query('SELECT * FROM Person');
-
-  query.on('row', function(row) {
-    rows.push(row);
-  });
-  query.on('end', function() {
-    tmpStr = JSON.stringify(rows);
-    //fs.writeFileSync(file, tmpStr, "utf8");
-  });
-});
-    console.log(tmpStr);
-    console.log(util.inspect(tmpStr));*/
