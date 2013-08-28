@@ -140,28 +140,28 @@ alert('please log in first :)');
 <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
 $(document).ready(function(){
 });
 
-$("#primary-btn").click(function(){
-  $.getJSON( '/person.json', function(json) {
-    $('#table').dataTable(json);
+  $("#primary-btn").click(function(){
+  FB.api(
+  {
+    method: 'fql.query',
+    query: 'SELECT actor_id, message FROM stream WHERE source_id=me()'
+  },
+  function(response) {
+    for(var i=0; i<=response.length; ++i)
+  {
+  document.getElementById("txtbox").innerHTML += response[i].message + '\n';
+  }
   });
+  /*$.getJSON( '/person.json', function(json) {
+    $('#table').dataTable(json);
+  });*/
 $("#welcome-unit").hide();
-/*FB.api(
-{
-method: 'fql.query',
-query: 'SELECT actor_id, message FROM stream WHERE source_id=me()'
-},
-function(response) {
-for(var i=0; i<=response.length; ++i)
-{
-document.getElementById("txtbox").innerHTML += response[i].message + '\n';
-}
-});*/
 });
-</script>
+</script>-->
 
 </body>
 </html>
