@@ -32,6 +32,11 @@ app.configure('development', function(){
 
 //app.get('/', routes.index);
 app.get('/users', user.list);
+app.get('/', function(req, res){
+    res.render('layout.jade', {title: 'hEx'});
+    res.contentType('text/HTML');
+    console.log('Handling GET request');
+});
 
 function onRequest(request, response) {
   var pathname = url.parse(request.url).pathname;
@@ -46,11 +51,6 @@ function route(pathname) {
   console.log("About to route a request for " + pathname);
 }
 
-app.get('/', function(req, res){
-    res.render('layout.jade', {title: 'hEx'});
-    res.contentType('text/HTML');
-    console.log('Handling GET request');
-});
 
 http.createServer(onRequest).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
