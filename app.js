@@ -31,10 +31,7 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-//app.get('/users', user.list);
-
-var rows = [];
-var tmpStr;
+app.get('/users', user.list);
 
 function onRequest(request, response) {
   var pathname = url.parse(request.url).pathname;
