@@ -4,5 +4,6 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+  res.render('test.html', { title: 'Test' });
+  console.log('Handling GET request');
 };

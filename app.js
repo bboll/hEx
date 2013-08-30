@@ -30,13 +30,13 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-//app.get('/', routes.index);
+app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/', function(req, res){
+/*app.get('/', function(req, res){
     res.render('layout.jade', {title: 'hEx'});
     res.contentType('text/HTML');
     console.log('Handling GET request');
-});
+});*/
 
 function onRequest(request, response) {
   var pathname = url.parse(request.url).pathname;
