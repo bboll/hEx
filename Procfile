@@ -1,1 +1,1 @@
-web: php
+web: sh boot.sh
