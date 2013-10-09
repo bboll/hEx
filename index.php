@@ -33,7 +33,7 @@ var _url = document.getElementById('pic_url').value;
   <fb:login-button perms="email,read_stream,publish_stream"></fb:login-button>
 <script type="text/javascript">
   window.fbAsyncInit = function() {
-    FB.init({appId: '172398519618039', status: true, cookie: true, xfbml: true});
+    FB.init({appId: '349867401786110', status: true, cookie: true, xfbml: true});
     FB.Event.subscribe('auth.login', function(response) {
       login();
     });
