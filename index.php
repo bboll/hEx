@@ -92,6 +92,38 @@ var _url = document.getElementById('pic_url').value;
       }
 </script>
 
+<script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+<?php /*<script src="/javascripts/bootstrap-transition.js"></script>
+<script src="/javascripts/bootstrap-alert.js"></script>
+<script src="/javascripts/bootstrap-modal.js"></script>
+<script src="/javascripts/bootstrap-dropdown.js"></script>
+<script src="/javascripts/bootstrap-scrollspy.js"></script>
+<script src="/javascripts/bootstrap-tab.js"></script>
+<script src="/javascripts/bootstrap-tooltip.js"></script>
+<script src="/javascripts/bootstrap-popover.js"></script>
+<script src="/javascripts/bootstrap-button.js"></script>
+<script src="/javascripts/bootstrap-collapse.js"></script>
+<script src="/javascripts/bootstrap-carousel.js"></script>
+<script src="/javascripts/bootstrap-typeahead.js"></script>
+*/ ?>
+<script type="text/javascript">$("#primary-btn").click(function(){
+  $("#welcome-unit").hide();
+  
+  FB.api(
+    {
+      method: 'fql.query',
+      query: 'SELECT actor_id, message FROM stream WHERE source_id=me()'
+    },
+    function(response) {
+      for(var i=0; i<=response.length; ++i)
+      {
+        document.getElementById("txtbox").innerHTML += response[i].message + '\n';
+      }
+    });
+});
+</script>
+
 </body>
 </html>
 
