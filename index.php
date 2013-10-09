@@ -1,11 +1,18 @@
 <script language="php">
 </script>
-
 <html>
 <head>
   <title>hEx</title>
+  <meta name="author" content="hEx">
+  <meta name="description" content="Makes cutting Facebook ties easy.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/stylesheets/bootstrap.css" rel="stylesheet">
+  <link href="/stylesheets/bootstrap-responsive.css" rel="stylesheet">
+  <style type="text/css"></style>
 </head>
+
 <body>
+<div class="row-fluid"><div class="span9"><div id="welcome-unit" class="hero-unit"><h1>hex</h1><p>cut ties--quick and painless!</p><p><a id="primary-btn" class="btn btn-primary btn-large">Go<i class="icon-play icon-white">
 
 <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js">
 filepicker.setKey('A7ciU9H3SRJiaEFhSGSXSz');
