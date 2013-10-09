@@ -6,7 +6,7 @@
   <meta name="author" content="hEx">
   <meta name="description" content="Makes cutting Facebook ties easy.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
   <style type="text/css"></style>
 </head>
 
