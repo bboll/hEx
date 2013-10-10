@@ -1,16 +1,55 @@
 <script language="php">
 </script>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>hEx</title>
-  <meta name="author" content="hEx">
-  <meta name="description" content="Makes cutting Facebook ties easy.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-  <style type="text/css"></style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>hEx</title>
+<meta name="author" content="hEx"><meta name="description" content="Makes cutting Facebook ties easy.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-
+combined.min.css" rel="stylesheet">
+<style type="text/css"></style>
 </head>
 
 <body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span></a>
+      <a href="#" class="brand">Hex</a>
+      <div class="nav-collapse collapse">
+        <p class="navbar-text pull-right">Logged in as<a href="#" class="navbar-link">Facebook</a></p>
+        <ul class="nav">
+          <li class="active"><a href="">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <form class="navbar-search pull-left">
+          <input type="text" placeholder="Search" class="search-query">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span9">
+      <div id="welcome-unit" class="hero-unit">
+        <h1>hEx</h1>
+        <p>Cut ties--quick and painless!</p>
+        <p><a id="primary-btn" class="btn btn-primary btn-large">Go<i class="icon-play icon-white"></i></a></p>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<textarea id="txtbox" rows="12" columns="100">Works with jade!</textarea>
+
 <div class="row-fluid"><div class="span9"><div id="welcome-unit" class="hero-unit"><h1>hex</h1><p>cut ties--quick and painless!</p><p><a id="primary-btn" class="btn btn-primary btn-large">Go<i class="icon-play icon-white">
 
 <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js">
