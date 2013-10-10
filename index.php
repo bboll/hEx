@@ -50,8 +50,6 @@ combined.min.css" rel="stylesheet">
 
 <textarea id="txtbox" rows="12" columns="100">Works with jade!</textarea>
 
-<div class="row-fluid"><div class="span9"><div id="welcome-unit" class="hero-unit"><h1>hex</h1><p>cut ties--quick and painless!</p><p><a id="primary-btn" class="btn btn-primary btn-large">Go<i class="icon-play icon-white">
-
 <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js">
 filepicker.setKey('A7ciU9H3SRJiaEFhSGSXSz');
     
