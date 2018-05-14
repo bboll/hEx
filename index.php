@@ -27,8 +27,6 @@ combined.min.css" rel="stylesheet">
   </div>
 </div>
 
-<textarea id="txtbox" rows="12" columns="100">Works with jade!</textarea>
-
 <script type="text/javascript">
 var _url = document.getElementById('pic_url').value;
 </script>
