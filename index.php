@@ -20,17 +20,14 @@ combined.min.css" rel="stylesheet">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span></a>
-      <a href="#" class="brand">Hex</a>
+      <a href="#" class="brand">hEx</a>
       <div class="nav-collapse collapse">
         <p class="navbar-text pull-right">Logged in as<a href="#" class="navbar-link">Facebook</a></p>
         <ul class="nav">
-          <li class="active"><a href="">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <form class="navbar-search pull-left">
-          <input type="text" placeholder="Search" class="search-query">
-        </form>
+
       </div>
     </div>
   </div>
@@ -40,7 +37,7 @@ combined.min.css" rel="stylesheet">
     <div class="span9">
       <div id="welcome-unit" class="hero-unit">
         <h1>hEx</h1>
-        <p>Cut ties--quick and painless!</p>
+        <p></p>
         <p><a id="primary-btn" class="btn btn-primary btn-large">Go<i class="icon-play icon-white"></i></a></p>
         <p></p>
       </div>
@@ -71,55 +68,59 @@ var _url = document.getElementById('pic_url').value;
       greet();
       }
     });
-  };(function() {
+  };
+
+  (function() {
       var e = document.createElement('script');
       e.type = 'text/javascript';
-      e.src = document.location.protocol +
-      '//connect.facebook.net/en_US/all.js';
+      e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
       e.async = true;
       document.getElementById('fb-root').appendChild(e);
       }());
+
       function login(){
-      FB.api('/me', function(response) {
-      alert('You have successfully logged in, '+response.name+"!");
-      });
+        FB.api('/me', function(response) {
+          alert('You have successfully logged in, '+response.name+"!");
+        });
       }
+
       function logout(){
-      alert('You have successfully logged out!');
+        alert('You have successfully logged out!');
       }
+
       function greet(){
-      FB.api('/me', function(response) {
-      alert('Welcome, '+response.name+"!");
-      });
+        FB.api('/me', function(response) {
+          alert('Welcome, '+response.name+"!");
+        });
       }
+
       function setStatus(){
-      // check if user is logged in:
-      FB.getLoginStatus(function(response) {
-      if (response.session) {
-      new_status = document.getElementById('status').value;
-      FB.api(
-      {
-      method: 'status.set',
-      status: new_status
-      },
-      function(response) {
-      if (response == 0){
-      alert('Your facebook status not updated. Give Status Update Permission.');
-      }
-      else{
-      alert('Your facebook status updated');
-      }
-      }
-      );
-      } else {
-      alert('please log in first :)');
-      }
-      });
+        // check if user is logged in:
+        FB.getLoginStatus(function(response) {
+            if (response.session) {
+              new_status = document.getElementById('status').value;
+              FB.api(
+              {
+                method: 'status.set',
+                status: new_status
+              },
+              function(response) {
+                if (response == 0) {
+                  alert('Your facebook status not updated. Give Status Update Permission.');
+                }
+                else {
+                  alert('Your facebook status updated');
+                }
+              });
+            }
+            else {
+              alert('Please log in first :)');
+            }
+        });
       }
 </script>
 
 <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.9.0.js"></script>
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">$("#primary-btn").click(function(){
