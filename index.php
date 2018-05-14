@@ -22,7 +22,7 @@ combined.min.css" rel="stylesheet">
       <span class="icon-bar"></span></a>
       <a href="#" class="brand">hEx</a>
       <div class="nav-collapse collapse">
-        <p class="navbar-text pull-right" name="FBUser">Not logged in</p>
+        <p class="navbar-text pull-right" id="FBUser">Not logged in</p>
         <ul class="nav">
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -121,7 +121,8 @@ var _url = document.getElementById('pic_url').value;
       }
 </script>
 
-<script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">$("#primary-btn").click(function(){
