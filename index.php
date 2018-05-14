@@ -22,7 +22,7 @@ combined.min.css" rel="stylesheet">
       <span class="icon-bar"></span></a>
       <a href="#" class="brand">hEx</a>
       <div class="nav-collapse collapse">
-        <p class="navbar-text pull-right" id="FBUser">Not logged in</p>
+        <p class="navbar-text pull-right" id="status">Not logged in</p>
         <ul class="nav">
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -46,11 +46,6 @@ combined.min.css" rel="stylesheet">
 </div>
 
 <textarea id="txtbox" rows="12" columns="100">Works with jade!</textarea>
-
-<script type="text/javascript">
-var _url = document.getElementById('pic_url').value;
-</script>
-
 
 <div id="fb-root"></div>
   <fb:login-button perms="email,read_stream,publish_stream"></fb:login-button>
@@ -81,7 +76,7 @@ var _url = document.getElementById('pic_url').value;
       function login(){
         FB.api('/me', function(response) {
           alert('You have successfully logged in, '+response.name+"!");
-          document.getElementById('FBUser').innerHTML = "Logged in as " + response.name;
+          document.getElementById('status').innerHTML = "Logged in as " + response.name;
         });
       }
 
