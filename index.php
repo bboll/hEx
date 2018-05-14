@@ -13,28 +13,7 @@ combined.min.css" rel="stylesheet">
 </head>
 
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container-fluid">
-      <a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span></a>
-      <a href="#" class="brand">Hex</a>
-      <div class="nav-collapse collapse">
-        <p class="navbar-text pull-right">Logged in as<a href="#" class="navbar-link">Facebook</a></p>
-        <ul class="nav">
-          <li class="active"><a href="">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <form class="navbar-search pull-left">
-          <input type="text" placeholder="Search" class="search-query">
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span9">
@@ -49,23 +28,6 @@ combined.min.css" rel="stylesheet">
 </div>
 
 <textarea id="txtbox" rows="12" columns="100">Works with jade!</textarea>
-
-<script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js">
-filepicker.setKey('A7ciU9H3SRJiaEFhSGSXSz');
-    
-/*      url: 'https://...',
-        data: {
-        filename: 'filename.txt', 
-        size: 100, 
-        type: 'text/plain'*/
-
-</script>
-
-    
-
-<form>
-<input id="pic_url" onchange="alert(event.fpfile.url); document.getElementById('pic_url').value = "Loading...";" data-fp-services="COMPUTER,DROPBOX,FACEBOOK,FLICKR,INSTAGRAM,URL,WEBCAM" data-fp-container="modal" data-fp-mimetypes="image/*" data-fp-apikey="A7ciU9H3SRJiaEFhSGSXSz" type="filepicker">
-</form>
 
 <script type="text/javascript">
 var _url = document.getElementById('pic_url').value;
