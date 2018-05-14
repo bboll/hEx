@@ -22,7 +22,7 @@ combined.min.css" rel="stylesheet">
       <span class="icon-bar"></span></a>
       <a href="#" class="brand">hEx</a>
       <div class="nav-collapse collapse">
-        <p class="navbar-text pull-right">Logged in as<a href="#" class="navbar-link">Facebook</a></p>
+        <p class="navbar-text pull-right" name="FBUser">Not logged in</p>
         <ul class="nav">
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -81,6 +81,7 @@ var _url = document.getElementById('pic_url').value;
       function login(){
         FB.api('/me', function(response) {
           alert('You have successfully logged in, '+response.name+"!");
+          document.getElementById('FBUser').innerHTML = "Logged in as " + response.name;
         });
       }
 
